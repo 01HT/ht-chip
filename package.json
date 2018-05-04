@@ -1,0 +1,13 @@
+{
+  "name": "ht-chip",
+  "version": "1.0.0",
+  "main": "ht-chip.js",
+  "repository": "https://github.com/maksimyurkov/ht-chip",
+  "author": "maksimyurkov <yurkov.maksim.sergeevich@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@polymer/lit-element": "@next",
+    "@polymer/iron-icon": "@next",
+    "@polymer/iron-iconset-svg": "@next"
+  }
+}
