@@ -19,7 +19,7 @@ class HTElementsChip extends LitElement {
           color:#A6A6A6;
           border-radius: 50%;
           cursor: pointer;
-          margin-right: -4px;
+          margin: 0 -4px 0 4px;
         }
 
         #container{
@@ -34,7 +34,7 @@ class HTElementsChip extends LitElement {
           display: flex;
           justify-content: space-between;
           flex-direction: row;
-          padding: 0 4px 0 12px;
+          padding: 0 12px 0 12px;
           align-items: center;
           box-shadow: ${
             shadow
@@ -50,7 +50,6 @@ class HTElementsChip extends LitElement {
         }
 
         #label {
-          margin-right: 12px;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
