@@ -3,7 +3,7 @@ import { LitElement, html } from "@polymer/lit-element";
 import "@polymer/iron-iconset-svg/iron-iconset-svg.js";
 import "@polymer/iron-icon";
 class HTElementsChip extends LitElement {
-  render({ label, close, shadow }) {
+  _render({ label, close, shadow }) {
     return html`
       <style>
         :host {
