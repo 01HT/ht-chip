@@ -19,10 +19,10 @@ class HTElementsChip extends LitElement {
           color:#A6A6A6;
           border-radius: 50%;
           cursor: pointer;
-          margin: 0 -4px 0 4px;
+          margin-left:8px;
         }
 
-        #container{
+        #container {
           max-width: 276px;
           background:#fff;
           font-size: 13px;
@@ -50,26 +50,52 @@ class HTElementsChip extends LitElement {
           overflow: hidden;
         }
 
-        ::slotted(#chip-image) {
-          margin: 0 8px 0 0;
+         ::slotted(div) {
+          display:flex;
+          align-items:center; 
+          justify-content:center;
+          --iron-icon-height: 18px; 
+          --iron-icon-width: 18px;
+         }
+
+        :host([full]) #container {
+          padding: 0 12px 0 0;
+        }
+
+        :host([full]) ::slotted(div) {
+          margin-right: 8px;
           width:32px;
           height:32px;
         }
 
-        ::slotted(#chip-background) {
-          display:flex;
-          align-items:center;
-          justify-content:center;
+        :host([image]) #container {
+          padding: 0 12px 0 8px;
+        }
+
+        :host([image]) ::slotted(div) {
+            display: flex;
+            width:18px;
+            height:18px;
+            margin-right:8px;
+        }
+
+        :host([icon]) #container {
+          padding: 0 12px 0 4px;
+        }
+
+        :host([icon]) ::slotted(div)  {
           border-radius: 50%;
           background: #A6A6A6;
-          --iron-icon-height: 19px;
-          --iron-icon-width: 19px;
           color: #ffffff;
           font-weight: 700;
           font-size: 16px;
-          margin: 0 8px 0 -12px;
-          width:32px;
-          height:32px;
+          margin-right:8px;
+          width:24px;
+          height:24px;
+        }
+
+        :host([close]) #container { 
+          padding-right: 8px;
         }
 
         [hidden] {
