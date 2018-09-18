@@ -2,8 +2,10 @@
 import { LitElement, html } from "@polymer/lit-element";
 import "@polymer/iron-iconset-svg/iron-iconset-svg.js";
 import "@polymer/iron-icon";
+
 class HTElementsChip extends LitElement {
-  _render({ label, close, shadow }) {
+  render() {
+    const { label, close, shadow } = this;
     return html`
       <style>
         :host {
@@ -109,16 +111,14 @@ class HTElementsChip extends LitElement {
           </defs>
         </svg>
       </iron-iconset-svg>
-      <div id="container" style=${
-        shadow
+      <div id="container" style="${
+        shadow || shadow === ""
           ? "box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);"
           : ""
-      }>
+      }">
         <slot name="avatar"></slot>
         <div id="label">${label}</div>
-        <iron-icon icon="ht-chip-icons:cancel" hidden?=${
-          close ? false : true
-        } on-click=${e => {
+        <iron-icon icon="ht-chip-icons:cancel" ?hidden=${!close} @click=${e => {
       this._close();
     }}></iron-icon>
       </div>
@@ -131,9 +131,9 @@ class HTElementsChip extends LitElement {
 
   static get properties() {
     return {
-      label: String,
-      close: Boolean,
-      shadow: Boolean
+      label: { type: String },
+      close: { type: Boolean },
+      shadow: { type: Boolean }
     };
   }
 
