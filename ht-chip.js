@@ -3,104 +3,104 @@ import { LitElement, html, css } from "lit-element";
 import "@polymer/iron-iconset-svg/iron-iconset-svg.js";
 import "@polymer/iron-icon";
 
+import { stylesBasicWebcomponents } from "@01ht/ht-theme/styles";
+
 class HTElementsChip extends LitElement {
-  static styles = css`<style>
-    :host {
-      display: block;
-      position:relative;
-      box-sizing:border-box;
-    }
+  static get styles() {
+    return [
+      stylesBasicWebcomponents,
+      css`
+        iron-icon {
+          --iron-icon-height: 18px;
+          --iron-icon-width: 18px;
+          position: relative;
+          color: #a6a6a6;
+          border-radius: 50%;
+          cursor: pointer;
+          margin-left: 8px;
+        }
 
-    iron-icon {
-      --iron-icon-height: 18px;
-      --iron-icon-width: 18px;
-      position: relative;
-      color:#A6A6A6;
-      border-radius: 50%;
-      cursor: pointer;
-      margin-left:8px;
-    }
+        #container {
+          max-width: 276px;
+          background: #fff;
+          font-size: 13px;
+          color: rgba(0, 0, 0, 0.87);
+          background: #fff;
+          border-radius: 16px;
+          height: 32px;
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+          padding: 0 12px 0 12px;
+          align-items: center;
+        }
 
-    #container {
-      max-width: 276px;
-      background:#fff;
-      font-size: 13px;
-      color: rgba(0, 0, 0, 0.87);
-      background: #fff;
-      border-radius: 16px;
-      height:32px;
-      position:relative;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      padding: 0 12px 0 12px;
-      align-items: center;
-    }
+        #container:hover {
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
 
-    #container:hover {
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-      0 1px 5px 0 rgba(0, 0, 0, 0.12),
-      0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    }
+        #label {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
 
-    #label {
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
+        ::slotted(div) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          --iron-icon-height: 18px;
+          --iron-icon-width: 18px;
+        }
 
-      ::slotted(div) {
-      display:flex;
-      align-items:center; 
-      justify-content:center;
-      --iron-icon-height: 18px; 
-      --iron-icon-width: 18px;
-      }
+        :host([full]) #container {
+          padding: 0 12px 0 0;
+        }
 
-    :host([full]) #container {
-      padding: 0 12px 0 0;
-    }
+        :host([full]) ::slotted(div) {
+          margin-right: 8px;
+          width: 32px;
+          height: 32px;
+        }
 
-    :host([full]) ::slotted(div) {
-      margin-right: 8px;
-      width:32px;
-      height:32px;
-    }
+        :host([image]) #container {
+          padding: 0 12px 0 8px;
+        }
 
-    :host([image]) #container {
-      padding: 0 12px 0 8px;
-    }
+        :host([image]) ::slotted(div) {
+          display: flex;
+          width: 18px;
+          height: 18px;
+          margin-right: 8px;
+        }
 
-    :host([image]) ::slotted(div) {
-        display: flex;
-        width:18px;
-        height:18px;
-        margin-right:8px;
-    }
+        :host([icon]) #container {
+          padding: 0 12px 0 4px;
+        }
 
-    :host([icon]) #container {
-      padding: 0 12px 0 4px;
-    }
+        :host([icon]) ::slotted(div) {
+          border-radius: 50%;
+          background: #a6a6a6;
+          color: #ffffff;
+          font-weight: 700;
+          font-size: 16px;
+          margin-right: 8px;
+          width: 24px;
+          height: 24px;
+        }
 
-    :host([icon]) ::slotted(div)  {
-      border-radius: 50%;
-      background: #A6A6A6;
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 16px;
-      margin-right:8px;
-      width:24px;
-      height:24px;
-    }
+        :host([close]) #container {
+          padding-right: 8px;
+        }
 
-    :host([close]) #container { 
-      padding-right: 8px;
-    }
-
-    [hidden] {
-      display:none;
-    }
-  </style>`;
+        [hidden] {
+          display: none;
+        }
+      `
+    ];
+  }
 
   render() {
     const { label, close, shadow } = this;
